@@ -32,6 +32,6 @@
 
 ## Live link
 
-- [Calculator]()
+- [Calculator](https://js-assig-2-calculator-app.netlify.app/)
 
 ---
