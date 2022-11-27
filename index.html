@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+          theme: {
+            extend: {
+              colors: {
+                clifford: '#da373d',
+                lilorange: 'rgba(248, 194, 145,0.2)',
+                offwhite: '#ecf0f1',
+              }
+            }
+          }
+        }
+      </script>
+    <title>CalculatorApp</title>
+</head>
+<body class=" m-0  bg-lilorange  h-[100vh]  flex flex-row justify-center items-center  " >
+  <!--  Calculator tab -->
+    <div class="rounded-[0.5rem] b bg-offwhite w-[20rem] h-[28rem]  shadow-lg  ease-in  duration-300  ring-2 ring-orange-400 hover:shadow-orange-400 	">
+
+      <form name="form" class="mt-[1.5rem]">
+        <input type="textview"  class="input m-[1rem] w-[18rem] h-[7rem] rounded-[0.5rem] bg-orange-200 flex flex-row justify-center items-center  duration-300 outline   outline-orange-400/[0.5]  text-[2rem]  " >
+      </form>
+
+      <table class="m-[1rem] mt-[2rem]">
+        <tbody>
+          <!-- row -1 -->
+          <tr class="flex flex-row  justify-between items-center space-x-[1.8rem]">
+            <td>
+              <input type="button" class="button w-[3rem] h-[3rem] font-semibold rounded-[2rem] hover:bg-slate-400/[0.3] active:bg-orange-200 duration-300"  value="C"  onclick="clean()"  >
+            </td>
+            <td>
+              <input type="button" class="button w-[3rem] h-[3rem] font-semibold rounded-[2rem] hover:bg-slate-400/[0.3] active:bg-orange-200 duration-300" value="/" onclick="insert('/')" >
+            </td>
+            <td>
+              <input type="button" class="button w-[3rem] h-[3rem]   font-semibold rounded-[2rem] hover:bg-slate-400/[0.3] active:bg-orange-200 duration-300" value="X" onclick="insert('*')" >
+            </td>
+            <td>
+                <div class=" w-[3rem] h-[3rem] rounded-[2rem] hover:bg-slate-400/[0.3] active:bg-orange-200 duration-300 flex flex-row  justify-between items-center  "  onclick="back()">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="#fa983a" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 z-10 ml-[0.7rem]  font-semibold ">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 9.75L14.25 12m0 0l2.25 2.25M14.25 12l2.25-2.25M14.25 12L12 14.25m-2.58 4.92l-6.375-6.375a1.125 1.125 0 010-1.59L9.42 4.83c.211-.211.498-.33.796-.33H19.5a2.25 2.25 0 012.25 2.25v10.5a2.25 2.25 0 01-2.25 2.25h-9.284c-.298 0-.585-.119-.796-.33z" />
+              </svg>
+              </div>
+              
+                
+            </td>
+          </tr>
+            <!-- row-2 -->
+          <tr class="flex flex-row  justify-between items-center space-x-[1.8rem] mt-[0.5rem]" >
+            <td>
+              <input class="button  w-[3rem] h-[3rem] font-semibold rounded-[2rem] hover:bg-slate-400/[0.3] active:bg-orange-200 duration-300" type="button" value="7" onclick="insert(7)">
+            </td>
+            <td>
+              <input class="button  w-[3rem] h-[3rem] font-semibold rounded-[2rem] hover:bg-slate-400/[0.3] active:bg-orange-200 duration-300" type="button" value="8" onclick="insert(8)">
+            </td>
+            <td>
+              <input class="button  w-[3rem] h-[3rem] font-semibold rounded-[2rem] hover:bg-slate-400/[0.3] active:bg-orange-200 duration-300" type="button" value="9" onclick="insert(9)">
+            </td>
+            <td>
+              <div class=" w-[3rem] h-[3rem] rounded-[2rem] hover:bg-slate-400/[0.3] active:bg-orange-200 duration-300 flex flex-row  justify-between items-center  "  onclick="insert('-')">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 z-10 ml-[0.7rem]  font-semibold">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M18 12H6" />
+                </svg>
+                
+              </div>
+              
+            </td>
+
+          </tr>
+          <!-- row-3 -->
+          <tr class="flex flex-row  justify-between items-center space-x-[1.8rem] mt-[0.5rem]" >
+            <td>
+              <input class="button  w-[3rem] h-[3rem] font-semibold rounded-[2rem] hover:bg-slate-400/[0.3] active:bg-orange-200 duration-300" type="button" value="4" onclick="insert(4)">
+            </td>
+            <td>
+              <input class="button  w-[3rem] h-[3rem] font-semibold rounded-[2rem] hover:bg-slate-400/[0.3] active:bg-orange-200 duration-300" type="button" value="5" onclick="insert(5)">
+            </td>
+            <td>
+              <input class="button  w-[3rem] h-[3rem] font-semibold rounded-[2rem] hover:bg-slate-400/[0.3] active:bg-orange-200 duration-300" type="button" value="6" onclick="insert(6)">
+            </td>
+            <td>
+              <div class=" w-[3rem] h-[3rem] rounded-[2rem] hover:bg-slate-400/[0.3] active:bg-orange-200 duration-300 flex flex-row  justify-between items-center  "  onclick="insert('+')">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6  z-10 ml-[0.7rem]  font-semibold">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
+                </svg>
+                
+                
+              </div>
+              
+            </td>
+
+          </tr>
+          <!-- row 4 -->
+          <tr class=" mt-[0.5rem]"  >
+            <td>
+              <input class="button  w-[3rem] h-[3rem] font-semibold rounded-[2rem] hover:bg-slate-400/[0.3] active:bg-orange-200 duration-300" type="button" value="1" onclick="insert(1)">
+            </td>
+            <td>
+              <input class="button  w-[3rem] h-[3rem] font-semibold rounded-[2rem] hover:bg-slate-400/[0.3] active:bg-orange-200 duration-300 relative right-[13rem]" type="button" value="2" onclick="insert(2)">
+            </td>
+            <td>
+              <input class="button  w-[3rem] h-[3rem] font-semibold rounded-[2rem] hover:bg-slate-400/[0.3] active:bg-orange-200 duration-300 relative right-[11.1rem]" type="button" value="3" onclick="insert(3)">
+            </td>
+            <td rowspan="2" >
+              <input class="equalbtton  w-[3rem] h-[6rem] font-bold rounded-[2rem] bg-slate-400/[0.3] active:bg-orange-200 duration-300  relative right-[9.5rem]" type="button" value="=" onclick="equals()">
+
+              
+            </td>
+
+          </tr>
+         
+           <!-- row 5 -->
+           <tr class="" >
+            <td>
+              <input class="button  w-[3rem] h-[3rem] font-semibold rounded-[2rem] hover:bg-slate-400/[0.3] active:bg-orange-200 duration-300" type="button" value="%" onclick="insert('%')">
+            </td>
+            <td>
+              <input class="button  w-[3rem] h-[3rem] font-semibold rounded-[2rem] hover:bg-slate-400/[0.3] active:bg-orange-200 duration-300  relative right-[13rem]" type="button" value="0" onclick="insert(0)">
+            </td>
+            <td>
+              <input class="button  w-[3rem] h-[3rem] font-semibold rounded-[2rem] hover:bg-slate-400/[0.3] active:bg-orange-200 duration-300  relative right-[11.1rem]" type="button" value="." onclick="insert()">
+            </td>
+           
+
+          </tr>
+
+        </tbody>
+      </table>
+
+
+
+
+    </div>
+
+
+    <script src="./script.js"></script>
+</body>
+</html>
